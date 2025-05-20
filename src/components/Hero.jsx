@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 // import profilePic from "../assets/raviyadav.webp";
 import profilePic2 from "../assets/raviyadav2.webp";
 import { HERO_CONTENT } from "../constants";
@@ -9,11 +10,15 @@ const Hero = () => {
         <div className="flex flex-wrap lg:flex-row-reverse">
           <div className="w-full lg:w-1/2">
             <div className="flex justify-center lg:p-8  ">
-              <img
+              <motion.img
                 src={profilePic2}
                 alt="Ravi Yadav"
-                className="border rounded-3xl border-white"
-              ></img>
+                className=" rounded-3xl opacity-60  "
+                whileHover={{
+                  scale: 1.01,
+                  opacity: 1,
+                }}
+              ></motion.img>
             </div>
           </div>
 
@@ -28,15 +33,22 @@ const Hero = () => {
               <p className="my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
                 {HERO_CONTENT}
               </p>
-              <a
+              <motion.a
                 href="/resume.pdf"
                 target="blank"
                 rel="noopener noreferrer"
                 download
                 className=" rounded-full p-4 text-sm  mb-10 text-white border border-white"
+                animate={{
+                  y: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
               >
                 Download Resume
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
